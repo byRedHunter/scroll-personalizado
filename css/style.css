@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* personalizar scroll */
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    background: rgba(51, 102, 147, 0.3);
+	width: 10px;
+} 
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 10px #00000070;
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, .4);
+	background: linear-gradient(125deg, #18181a, #c03535);
+	border-radius: 5px;
+}
+
+::-moz-scrollbar {
+    background: rgba(51, 102, 147, 0.3);
+	width: 10px;
+} 
+::-moz-scrollbar-track {
+	box-shadow: inset 0 0 10px #00000070;
+	border-radius: 5px;
+}
+::-moz-scrollbar-thumb {
+	background: rgba(0, 0, 0, .4);
+	background: linear-gradient(125deg, #18181a, #c03535);
+	border-radius: 5px;
+}
+/* personalizar scroll */
+
+/* preLoader */
+.hidden {
+    overflow: hidden;
+}
+.pre-loader {
+    width: 100%;
+    height: 100vh;
+    background-color: #1b1a1a;
+    z-index: 50;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .loader {
+        width: 0px;
+        height: 0px;
+        border: 8px solid transparent;
+        
+        -moz-border-image: -moz-linear-gradient(left, #c55 0%, #3a4ed5 100%);
+        -webkit-border-image: -webkit-linear-gradient(left, #c55 0%, #3a4ed5 100%);
+        border-image: linear-gradient(to right, #c55 0%, #3a4ed5 100%);
+        
+        border-image-slice: 1;
+
+        position: absolute;
+        animation: aparecer 1.5s ease-in-out infinite;
+    }
+    
+    .ocultarLoader {
+        animation: ocultar 1s ease-in;
+        animation-fill-mode: forwards   ;
+    }
+    @keyframes ocultar {
+        from {
+            opacity: 1;
+        }
+        50% {
+            opacity: .5;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes aparecer {
+        from {
+            width: 0px;
+            height: 0px;
+            transform: rotate(0deg);
+        }
+        30% {
+            width: 30px;
+            height: 30px;
+        }
+        70% {
+            width: 50px;
+            height: 50px;
+        }
+        to {
+            width: 70px;
+            height: 70px;
+            transform: rotate(360deg);
+        }
+    }
+/* preLoader */
+
+body {
+    background-color: rgb(129, 129, 129);
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    color: #fff;
+    font-size: 20px;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.contenedor-up {
+    background-image: url('../img/fondo.jpg');
+    background-attachment: fixed;
+}
+.contenedor-down {
+    background-image: url('../img/bg.jpg');
+}
+
+.social-media {
+    position: fixed;
+    top: 40%;
+    left: 1.5%;
+    width: 60px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    .redes {
+        width: 100%;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+    }
+        a {
+            width: 50px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all ease-in .3s;
+        }
+        a:hover {
+            border-left: 5px solid #000;
+            width: 100%;
+        }
+        .redes a:nth-child(1) {
+            background-color: #24292e;
+        }
+        .redes a:nth-child(2) {
+            background-color: #c32aa3;
+        }
+        .redes a:nth-child(3) {
+            background-color: #1da1f2;
+        }
+        .redes a:nth-child(4) {
+            background-color: #e03030;
+        }
+    .boton {
+        width: 100%;
+        height: 20px;
+        cursor: pointer;
+        transform: rotate(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all ease-in;
+    }
+        .boton i {
+            color: #c54;
+            transition: all ease;
+        }
+        .boton:hover i {
+            animation: mover infinite 1.5s linear;
+        }
+        @keyframes mover {
+            from {
+                margin-right: 15px;
+            }
+            30% {
+                margin: 0px;
+            }
+            60% {
+                margin-left: 15px;
+            }
+            80% {
+                margin: 0;
+            }
+            to {
+                margin-right: 15px;
+            }
+        }
+
+.ocultar-redes {
+    display: none;
+}
+
+@media screen and (max-width: 425px) {
+    .social-media {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: calc(100% - 40px);
+        height: 40px;
+        width: 100%;
+    }
+        .redes {
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+        }
+            a {
+                width: 25%;
+            }
+
+    .boton {
+        display: none;
+    }
+}
